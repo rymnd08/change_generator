@@ -1,0 +1,18 @@
+
+
+.bills{
+    max-width: 250px;
+}
+.coins{
+    max-height: 100px;
+}
+.values{
+    font-size: 60px;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+.changeGen {
+    position: fixed;
+    bottom: 0;
+    right: 50vw;
+}
