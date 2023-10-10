@@ -1,48 +1,49 @@
-
-<div class="container ">
+<div class="container">
   <h1 class="text-center mb-3">CHANGE GENERATOR</h1>
   <div class="row text-left">
     <div class="col-lg-2"></div>
-    <div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
-      
-      <div class="form-floating mb-3">
-        <input
-          type="number"
-          class="form-control"
-          id="floatingInput"
-          placeholder=""
-          #price
-          autocomplete="off"
-          min="0"
-        />
-        <label for="floatingInput">Price</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input
-          type="number"
-          class="form-control"
-          id="floatingInput"
-          placeholder=""
-          #payment
-          autocomplete="off"
-          min="0"
-        />
-        <label for="floatingInput">Payment</label>
-      </div>
-      <button
-        type="button"
-        class="btn btn-primary btn-lg rounded-0 mb-3"
-        (click)="compute(payment, price)"
-      >
-        Compute
-      </button>
+    <div
+      class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column justify-content-center"
+    >
+      <form (submit)="compute(payment, price, $event)">
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="floatingInput"
+            placeholder=""
+            #price
+            autocomplete="off"
+            min="0"
+          />
+          <label for="floatingInput">Price</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="floatingInput"
+            placeholder=""
+            #payment
+            autocomplete="off"
+            min="0"
+          />
+          <label for="floatingInput">Payment</label>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg rounded-0 mb-3 w-100"
+        
+        >
+          Compute
+        </button>
+      </form>
       <h1 class="heading-1 text-success" *ngIf="paymentVal !== 0">
         Payment: {{ paymentVal }}
       </h1>
       <h1 class="heading-1 text-danger mb-3" *ngIf="priceVal !== 0">
         Price: {{ priceVal }}
       </h1>
-      
     </div>
     <div class="col-lg-5 col-md-12 col-sm-12">
       <div class="card">
@@ -50,7 +51,7 @@
           <h2 class="heading-1 text-info">CHANGE: {{ change }}</h2>
         </div>
         <div class="card-body">
-          <div class="row " *ngIf="paymentVal !== 0">
+          <div class="row" *ngIf="paymentVal !== 0">
             <div class="col-12" *ngIf="billsCount['thousand'] !== 0">
               <span class="values">{{
                 billsCount ? billsCount["thousand"] : null

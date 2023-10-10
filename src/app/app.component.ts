@@ -12,7 +12,8 @@ export class AppComponent {
   change = 0;
   changeArray : any = []
   billsCount : any = {}
-  compute(pay: HTMLInputElement, prc: HTMLInputElement) {
+  compute(pay: HTMLInputElement, prc: HTMLInputElement, e: any) {
+    e.preventDefault()
     this.paymentVal = +pay.value
     this.priceVal = +prc.value
     this.change = (this.paymentVal - this.priceVal)
